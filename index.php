@@ -1,5 +1,9 @@
 <?php 
     $get_password=$_GET['password'];
+    $rand_password= random_bytes($get_password);
+
+    $rand=openssl_random_pseudo_bytes($get_password);
+    $pass=bin2hex($rand);
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +23,11 @@
             <input type="submit">
         </form>
         <div>
-            <?php echo $get_password; ?>
+            <h4>complimenti questa è la tua password:</h4>
+            <?php 
+                echo $pass;
+            ?>
+
         </div>
     </div>
 </body>
